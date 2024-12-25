@@ -1,0 +1,8 @@
+tar -tzvf app.tar.gz .  --> to unzip
+
+-In JSON format:
+If you're directly working with JSON and want to escape curly braces inside a string, simply place them inside the string without needing to escape them:
+{
+  "email": "picoplayer355@picoctf.org",
+  "password": "{\"$ne\":\"asdf\"}"
+}
